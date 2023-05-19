@@ -17,12 +17,7 @@ import java.util.List;
 public class DepartmentController {
 
 
-    @GetMapping("{id}")
-    public ResponseEntity<Department> getDepartmentById(@PathVariable long id){
-        System.out.println("defining a method to find a department by id");
-        Department department= DepartmentRepository.findById(id).orElseThrow(() ->new ResourceNotFoundException("Employee " + "not found with id :" +id));
-        return ResponseEntity.ok(department);   //ok method provides 200 ok status message
-    }
+
 
     @GetMapping("/department")
     public Department getDepartment(){
