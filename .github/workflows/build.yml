@@ -51,6 +51,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           
-        run: |
-              cd devops-assignment/pom.xml
-              mvn clean install
+        run: mvn clean install
+              #cd devops-assignment/pom.xml
+              #mvn clean install
