@@ -1,6 +1,10 @@
 package com.example.springbootdemo.controller;
 
+import com.example.springbootdemo.exception.ResourceNotFoundException;
 import com.example.springbootdemo.model.Department;
+import com.example.springbootdemo.model.Employee;
+import com.example.springbootdemo.repository.DepartmentRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +15,14 @@ import java.util.List;
 
 @RestController
 public class DepartmentController {
+
+
+    @GetMapping("{id}")
+    public ResponseEntity<Department> getDepartmentById(@PathVariable long id){
+        System.out.println("defining a method to find a department by id");
+        Department department= DepartmentRepository.findById(id).orElseThrow(() ->new ResourceNotFoundException("Employee " + "not found with id :" +id));
+        return ResponseEntity.ok(department);   //ok method provides 200 ok status message
+    }
 
     @GetMapping("/department")
     public Department getDepartment(){

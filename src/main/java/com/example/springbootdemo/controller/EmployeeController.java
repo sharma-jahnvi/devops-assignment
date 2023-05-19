@@ -35,9 +35,12 @@ public class EmployeeController {
     //build update employee rest api method
     @GetMapping("{id}")
     public ResponseEntity<Employee> getEmployeeId( @PathVariable long id){
+       System.out.println("defining a method to find an employee by id");
        Employee employee=employeeRepository.findById(id).orElseThrow(() ->new ResourceNotFoundException("Employee " + "not found with id :" +id));
        return ResponseEntity.ok(employee);   //ok method provides 200 ok status message
     }
+
+
 
     @PutMapping("{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable long id,  @RequestBody Employee employeedetails) {//client will call this api and
