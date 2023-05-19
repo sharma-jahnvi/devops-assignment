@@ -52,6 +52,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           
         run: |
-             #mvn -f /home/runner/work/devops-assignment/devop-assignment/pom.xml -B verify 
-             cd devop-assignment/pom.xml
-             mvn clean install
+              cd devops-assignment/pom.xml
+              mvn clean install
