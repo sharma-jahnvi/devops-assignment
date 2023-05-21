@@ -18,14 +18,14 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@v3
         with:
-            java-version: 11
+            java-version: 17
             # The package type (jre, jdk, jdk+fx)
             distribution: 'adopt'
             java-package: jdk
             # The architecture (x86, x64) of the package.
             architecture: x64
             # Path to where the compressed JDK is located. The path could be in your source repository or a local path on the agent.
-            jdkFile: C:\Program Files\SapMachine\JDK\11
+            jdkFile: C:\Program Files\SapMachine\JDK\17
             # ID of the distributionManagement repository in the pom.xml file. Default is `github`
             server-id: github
             # Environment variable name for the username for authentication to the Apache Maven repository. Default is $GITHUB_ACTOR
@@ -51,6 +51,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           
-        run: mvn clean install
+        run: mvn clean 
               #cd devops-assignment/pom.xml
               #mvn clean install
